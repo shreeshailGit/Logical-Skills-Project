@@ -76,7 +76,9 @@ public class Employee_Test_Java8 {
 			System.out.println("highest paid employee in the organization? "+emp);
 			Employee employee = employeeList.stream().max((e1,e2)-> e1.getSalary() > e2.getSalary() ? 1 : -1).get();
 			System.out.println("highest paid employee in the organization 2nd way? "+emp);
-
+			Optional<Employee> highestPaidEmp = employeeList.stream().max(Comparator.comparingDouble(Employee :: getSalary));
+			System.out.println("highest paid employee in the organization 3rd way? "+highestPaidEmp.get());
+			
 			//lowest paid employee in the organization?
 			Optional<Employee> opt1 = employeeList.stream().collect(Collectors.minBy(Comparator.comparing(Employee::getSalary)));
 			Employee employee2 = opt1.get();
