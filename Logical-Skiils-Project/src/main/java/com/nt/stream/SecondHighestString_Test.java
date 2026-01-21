@@ -16,7 +16,12 @@ public class SecondHighestString_Test {
 		
 		List<String> result = Arrays.stream(s.split(" ")).sorted(Comparator.comparing(String  :: length).reversed()).collect(Collectors.toList());
      System.out.println("2nd highest elem : "+result.get(1));
-	
+     
+     
+	  String[] input = {"Milind","Mehta","folloe","java8","Microservice","SpringBoot"};
+	 String firstHighStr = Arrays.stream(input).reduce((str1,str2) -> str1.length() >str2.length() ? str1 :str2).orElse(null);
+	  System.out.println("1st Highest String :: "+firstHighStr);
+	  
 	}
 
 }

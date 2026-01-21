@@ -302,6 +302,16 @@ public class Employee_Test_Java8 {
 	
 	sortedEmployees.forEach(System.out::println);
 	
+	//increse salary by 10% whose salary is less than 20k
+	List<Employee> increseSalby10percent = employeeList.stream().filter(e -> e.getSalary()<20000)
+	             .map(e -> { 
+	            	     e.setSalary(e.getSalary() + (e.getSalary() * 0.1));
+	            	     return e; 
+	            	     })
+	              .collect(Collectors.toList());
+	
+	System.out.println(increseSalby10percent);
+	             
 
 	}//main
 
@@ -354,6 +364,34 @@ class Employee {
 
 	public double getSalary() {
 		return salary;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public void setYearOfJoining(int yearOfJoining) {
+		this.yearOfJoining = yearOfJoining;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
 	}
 
 	@Override
