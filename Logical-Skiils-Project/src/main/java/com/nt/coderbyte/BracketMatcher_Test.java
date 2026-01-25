@@ -13,12 +13,13 @@ public class BracketMatcher_Test {
 	
 	public static boolean isbalanced(String input) {
 		Stack<Character> stack = new Stack<>();
-		
+		System.out.println("check"+stack.isEmpty());
 		for(char cs : input.toCharArray()) {
 			if(cs == '(' || cs == '{' || cs == '[') {
 				stack.push(cs);
 			}else if(cs == ')' || cs == '}' || cs == ']') {
 				 if(stack.isEmpty()) {
+					 System.out.println("level");
 					 return false;
 				 }
 				 char open = stack.pop();
