@@ -19,7 +19,6 @@ public class BracketMatcher_Test {
 				stack.push(cs);
 			}else if(cs == ')' || cs == '}' || cs == ']') {
 				 if(stack.isEmpty()) {
-					 System.out.println("level");
 					 return false;
 				 }
 				 char open = stack.pop();
