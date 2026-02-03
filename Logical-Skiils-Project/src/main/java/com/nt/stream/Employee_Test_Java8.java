@@ -312,7 +312,18 @@ public class Employee_Test_Java8 {
 	
 	System.out.println(increseSalby10percent);
 	             
-
+	//find the names of those employee whose is belongs to city Pune and salary > 20k and deptId = IT
+	/*List<Employee> prodConList  = employeeList.stream().filter(em -> em.getYearOfJoining() == 2015 && em.getSalary() >20000).collect(Collectors.toList());
+	 //prodConList.stream().filter(i -> i.getDept().equals("IT")).map(e -> Collectors.toMap(Employee :: getEName,Collectors.toList()));
+	List<String> prodCodnames = prodConList.stream().filter(p -> p.getDepartment().equals("Product Development")).map(Employee :: getName).collect(Collectors.toList());
+	System.out.println(prodCodnames);*/
+	//ALternative
+	List<String> prodConList = employeeList.stream().filter(prod -> prod.getYearOfJoining() == 2015)
+	                     .filter(prod -> prod.getSalary() > 20000)
+	                     .filter(prod -> prod.getDepartment().equals("Product Development"))
+	                     .map(prod -> prod.getName()).collect(Collectors.toList());		 
+	                     
+	
 	}//main
 
 }//class
