@@ -1,14 +1,36 @@
 package com.nt.coderbyte;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class BracketMatcher_Test {
 
 	public static void main(String[] args) {
        // System.out.println("Bracket Matcher Test :: "+isValidate(")(()"));
-        
+		System.out.println(longestSubStringLength("abcabca"));
         
         System.out.println("Bracket Matcher Test :: "+isbalanced("((()))[]"));
+        
+	}
+	public static int longestSubStringLength(String s) {
+	 int right=0,left=0,maxLength=0;
+	 Set<Character> set = new HashSet<>();
+	 
+	  while(right<s.length()) {
+		  char ch = s.charAt(right);
+		  
+		  while(set.contains(ch)) {
+			  set.remove(ch);
+			  left++;
+		  }
+		  
+		  set.add(ch);
+		  maxLength = Math.max(maxLength, right-left+1);
+		  right++;
+	  }
+	  return maxLength;
+	//	return 0;
 	}
 	
 	public static boolean isbalanced(String input) {

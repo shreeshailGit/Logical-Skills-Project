@@ -11,6 +11,16 @@ public class CheckPrime_Number {
    
    System.out.println("Check Prime ? "+flag);
    
+   System.out.println("=======================================");
+	/* IntStream.rangeClosed(1, 20)
+	      .filter(n ->n > 1 && IntStream.rangeClosed(2, (int)Math.sqrt(n))
+	    		   .allMatch(i -> n % i != 0)).forEach(System.out::println);*/
+   
+   IntStream.rangeClosed(1, 20)
+   .filter(n ->n > 1 && IntStream.rangeClosed(2, (int)Math.sqrt(n))
+ 		   .noneMatch(i -> n % i == 0)).forEach(System.out::println);
+                           
+   
 	}
 
 }
